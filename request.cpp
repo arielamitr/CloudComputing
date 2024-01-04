@@ -9,5 +9,5 @@ Request::Request() {
 }
 
 void Request::printRequest() {
-    cout << "IP in: " << ipIn << "\nIP out: " << ipOut << "\nTime: " << cycles << endl;
+    cout << "IP in: " << ipIn << "\nIP out: " << ipOut << "\nTime: " << cycles << endl << endl;
 }

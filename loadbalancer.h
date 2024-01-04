@@ -13,8 +13,12 @@ using namespace std;
 class LoadBalancer {
     public:
         queue <Request> q;
-
         int time;
+        int cc = 0;
+
+        vector<Webserver*> wServers;  
+        vector<float> ratios;
+        vector<int> servers;
 
         LoadBalancer();
 

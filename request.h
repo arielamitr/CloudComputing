@@ -9,6 +9,8 @@
 
 using namespace std;
 
+#pragma once
+
 class Request {
     public:
         string ipIn;

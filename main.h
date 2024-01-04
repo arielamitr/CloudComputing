@@ -12,3 +12,9 @@ using namespace std;
 int getUserInput();
 
 void printStatus();
+
+int countRunningWebservers();
+
+void createServers(int serverCount);
+
+void removeServer();
