@@ -8,3 +8,7 @@
 #include<cstdlib>
 
 using namespace std;
+
+int getUserInput();
+
+void printStatus();
