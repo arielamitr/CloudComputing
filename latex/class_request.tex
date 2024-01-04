@@ -1,0 +1,104 @@
+\doxysection{Request Class Reference}
+\hypertarget{class_request}{}\label{class_request}\index{Request@{Request}}
+
+
+Represents a request in a load balancing system.  
+
+
+
+
+{\ttfamily \#include $<$request.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_request_afaf8d8928de7ffff8a3767589489bd33}{Request}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{class_request}{Request} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_request_a678523acdc8ba240df16194bcff386bc}{print\+Request}} (ofstream \&log\+File)
+\begin{DoxyCompactList}\small\item\em Prints the details of the request to the given output file stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_request_a673250f9e8c5b76f201ce4473d6bd38a}{ip\+In}}
+\item 
+int \mbox{\hyperlink{class_request_a4076dbc9f90e37e6e46a3757e2cd138a}{ip\+In\+Addy}}
+\item 
+string \mbox{\hyperlink{class_request_a5b6261d9519372caf3931cd6b33a56b1}{ip\+Out}}
+\item 
+int \mbox{\hyperlink{class_request_aa96b29c91d83df55f258e311e3402a35}{ip\+Out\+Addy}}
+\item 
+int \mbox{\hyperlink{class_request_aee579371b3e3d8114af2318a30ff1b28}{cycles}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a request in a load balancing system. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_request_afaf8d8928de7ffff8a3767589489bd33}\label{class_request_afaf8d8928de7ffff8a3767589489bd33} 
+\index{Request@{Request}!Request@{Request}}
+\index{Request@{Request}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{Request()}{Request()}}
+{\footnotesize\ttfamily Request\+::\+Request (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor for the \doxylink{class_request}{Request} class. 
+
+Initializes the IP addresses and cycles randomly. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_request_a678523acdc8ba240df16194bcff386bc}\label{class_request_a678523acdc8ba240df16194bcff386bc} 
+\index{Request@{Request}!printRequest@{printRequest}}
+\index{printRequest@{printRequest}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{printRequest()}{printRequest()}}
+{\footnotesize\ttfamily void Request\+::print\+Request (\begin{DoxyParamCaption}\item[{ofstream \&}]{log\+File }\end{DoxyParamCaption})}
+
+
+
+Prints the details of the request to the given output file stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em log\+File} & The output file stream where the request details will be printed. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_request_aee579371b3e3d8114af2318a30ff1b28}\label{class_request_aee579371b3e3d8114af2318a30ff1b28} 
+\index{Request@{Request}!cycles@{cycles}}
+\index{cycles@{cycles}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{cycles}{cycles}}
+{\footnotesize\ttfamily int Request\+::cycles}
+
+Time required for the request to complete. \Hypertarget{class_request_a673250f9e8c5b76f201ce4473d6bd38a}\label{class_request_a673250f9e8c5b76f201ce4473d6bd38a} 
+\index{Request@{Request}!ipIn@{ipIn}}
+\index{ipIn@{ipIn}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{ipIn}{ipIn}}
+{\footnotesize\ttfamily string Request\+::ip\+In}
+
+Source IP address of the request. \Hypertarget{class_request_a4076dbc9f90e37e6e46a3757e2cd138a}\label{class_request_a4076dbc9f90e37e6e46a3757e2cd138a} 
+\index{Request@{Request}!ipInAddy@{ipInAddy}}
+\index{ipInAddy@{ipInAddy}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{ipInAddy}{ipInAddy}}
+{\footnotesize\ttfamily int Request\+::ip\+In\+Addy}
+
+Numeric representation of the source IP address. \Hypertarget{class_request_a5b6261d9519372caf3931cd6b33a56b1}\label{class_request_a5b6261d9519372caf3931cd6b33a56b1} 
+\index{Request@{Request}!ipOut@{ipOut}}
+\index{ipOut@{ipOut}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{ipOut}{ipOut}}
+{\footnotesize\ttfamily string Request\+::ip\+Out}
+
+Destination IP address of the request. \Hypertarget{class_request_aa96b29c91d83df55f258e311e3402a35}\label{class_request_aa96b29c91d83df55f258e311e3402a35} 
+\index{Request@{Request}!ipOutAddy@{ipOutAddy}}
+\index{ipOutAddy@{ipOutAddy}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{ipOutAddy}{ipOutAddy}}
+{\footnotesize\ttfamily int Request\+::ip\+Out\+Addy}
+
+Numeric representation of the destination IP address. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{request_8h}{request.\+h}}\item 
+request.\+cpp\end{DoxyCompactItemize}

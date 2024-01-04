@@ -1,3 +1,8 @@
+/**
+ * @file user_input.h
+ * @brief Header file for the user input functions.
+ */
+
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -9,4 +14,9 @@
 
 using namespace std;
 
+/**
+ * @brief Function to get user input from the command line.
+ * 
+ * @return The user input as an integer.
+ */
 int getUserInput();

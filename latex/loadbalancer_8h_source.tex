@@ -1,0 +1,51 @@
+\doxysection{loadbalancer.\+h}
+\hypertarget{loadbalancer_8h_source}{}\label{loadbalancer_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ LOADBALANCER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ LOADBALANCER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <unordered\_set>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{request_8h}{request.h}}"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{webserver_8h}{webserver.h}}"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_load_balancer}{LoadBalancer}}\ \{}
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{class_load_balancer_a6e6669a6a4f0c3df345a13246b17a84b}{LoadBalancer}}();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_load_balancer_a9b5b9d725d92c4ff1f4570323e7cd7a6}{run}}(\textcolor{keywordtype}{int}\ webserverCount,\ \textcolor{keywordtype}{int}\ totalClockCycles,\ \textcolor{keywordtype}{bool}\ verbose,\ \textcolor{keywordtype}{bool}\ firewall,\ \textcolor{keywordtype}{int}\ requestSpeed);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00038\ \ \ \ \ std::queue<Request>\ \mbox{\hyperlink{class_load_balancer_a15814d614b53f3b85e28ae079f509e19}{q}};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_load_balancer_a363317f241373a9b71b03df5b4927265}{time}};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_load_balancer_a7cacbbb1fea0005842e88ddb07c40f82}{cc}}\ =\ 0;}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00053\ \ \ \ \ std::vector<Webserver*>\ \mbox{\hyperlink{class_load_balancer_a0f8e880dc51c5423d28b6c55aa490ec8}{wServers}};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00058\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{class_load_balancer_ae3726a868ab63211ae7ac12102af9734}{ratios}};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00063\ \ \ \ \ std::vector<int>\ \mbox{\hyperlink{class_load_balancer_a2d5bb8f53369f0bf195e4860cefb6ce7}{servers}};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_load_balancer_a422db9f26d7903e645279e3fd29ad005}{qSize}};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_load_balancer_a5ee8b9fe842848a25e6c0a44c63a30b7}{generateRequests}}(\textcolor{keywordtype}{int}\ numToAdd,\ \textcolor{keywordtype}{bool}\ firewall,\ \textcolor{keywordtype}{bool}\ verbose,\ std::ofstream\&\ logFile);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_load_balancer_a902355bdf7de70bd20f7f59b762a117d}{printStatus}}(\textcolor{keywordtype}{bool}\ verbose,\ std::ofstream\&\ outputFile);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_load_balancer_a7e5e77fadf35b21050d0eb49c8173b62}{countRunningWebservers}}();}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_load_balancer_a08ccdab26f56eac242b3992288634dfd}{createServers}}(\textcolor{keywordtype}{int}\ serverCount);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_load_balancer_a2f77281d168914e6bbe1857a0cd84d25}{removeServer}}();}
+\DoxyCodeLine{00102\ \};}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ LOADBALANCER\_H}}
+
+\end{DoxyCode}

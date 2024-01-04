@@ -1,0 +1,115 @@
+\doxysection{Webserver Class Reference}
+\hypertarget{class_webserver}{}\label{class_webserver}\index{Webserver@{Webserver}}
+
+
+Represents a web server in a load balancing system.  
+
+
+
+
+{\ttfamily \#include $<$webserver.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_webserver_ac2a6f51bcc54efaaf5f4773a7c24f009}{Webserver}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{class_webserver}{Webserver} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_webserver_a134632601c516a92dff621e0422bc506}{assign\+Request}} (\mbox{\hyperlink{class_request}{Request}} new\+Request)
+\begin{DoxyCompactList}\small\item\em Assigns a new request to the web server. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_webserver_a4d71885da96ae2a81b97b9aaf86c277f}{is\+Done}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the web server has completed processing its current request. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_webserver_a06756b83e3cba93c76b69b24825f22c7}{cycle}} ()
+\begin{DoxyCompactList}\small\item\em Simulates one cycle of processing for the web server. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_request}{Request}} \mbox{\hyperlink{class_webserver_aa77f6a0f870d3521673b0650635375d8}{r}}
+\item 
+int \mbox{\hyperlink{class_webserver_ae65765de5a334d4a4d9f6161abd176c8}{cycles\+Left}}
+\item 
+bool \mbox{\hyperlink{class_webserver_af4815e3e464d68899b42f78404f17f4e}{waiting}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a web server in a load balancing system. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_webserver_ac2a6f51bcc54efaaf5f4773a7c24f009}\label{class_webserver_ac2a6f51bcc54efaaf5f4773a7c24f009} 
+\index{Webserver@{Webserver}!Webserver@{Webserver}}
+\index{Webserver@{Webserver}!Webserver@{Webserver}}
+\doxysubsubsection{\texorpdfstring{Webserver()}{Webserver()}}
+{\footnotesize\ttfamily Webserver\+::\+Webserver (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor for the \doxylink{class_webserver}{Webserver} class. 
+
+Initializes the web server with no assigned request and waiting for a new one. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_webserver_a134632601c516a92dff621e0422bc506}\label{class_webserver_a134632601c516a92dff621e0422bc506} 
+\index{Webserver@{Webserver}!assignRequest@{assignRequest}}
+\index{assignRequest@{assignRequest}!Webserver@{Webserver}}
+\doxysubsubsection{\texorpdfstring{assignRequest()}{assignRequest()}}
+{\footnotesize\ttfamily void Webserver\+::assign\+Request (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_request}{Request}}}]{new\+Request }\end{DoxyParamCaption})}
+
+
+
+Assigns a new request to the web server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Request} & The new request to be assigned to the web server. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_webserver_a06756b83e3cba93c76b69b24825f22c7}\label{class_webserver_a06756b83e3cba93c76b69b24825f22c7} 
+\index{Webserver@{Webserver}!cycle@{cycle}}
+\index{cycle@{cycle}!Webserver@{Webserver}}
+\doxysubsubsection{\texorpdfstring{cycle()}{cycle()}}
+{\footnotesize\ttfamily void Webserver\+::cycle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Simulates one cycle of processing for the web server. 
+
+If the server is actively processing a request, decrements the remaining cycles. If the request is completed, sets the waiting flag to true. \Hypertarget{class_webserver_a4d71885da96ae2a81b97b9aaf86c277f}\label{class_webserver_a4d71885da96ae2a81b97b9aaf86c277f} 
+\index{Webserver@{Webserver}!isDone@{isDone}}
+\index{isDone@{isDone}!Webserver@{Webserver}}
+\doxysubsubsection{\texorpdfstring{isDone()}{isDone()}}
+{\footnotesize\ttfamily bool Webserver\+::is\+Done (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if the web server has completed processing its current request. 
+
+\begin{DoxyReturn}{Returns}
+True if the web server has completed processing; false otherwise. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_webserver_ae65765de5a334d4a4d9f6161abd176c8}\label{class_webserver_ae65765de5a334d4a4d9f6161abd176c8} 
+\index{Webserver@{Webserver}!cyclesLeft@{cyclesLeft}}
+\index{cyclesLeft@{cyclesLeft}!Webserver@{Webserver}}
+\doxysubsubsection{\texorpdfstring{cyclesLeft}{cyclesLeft}}
+{\footnotesize\ttfamily int Webserver\+::cycles\+Left}
+
+The remaining cycles for the current request to complete. \Hypertarget{class_webserver_aa77f6a0f870d3521673b0650635375d8}\label{class_webserver_aa77f6a0f870d3521673b0650635375d8} 
+\index{Webserver@{Webserver}!r@{r}}
+\index{r@{r}!Webserver@{Webserver}}
+\doxysubsubsection{\texorpdfstring{r}{r}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_request}{Request}} Webserver\+::r}
+
+The request currently being processed by the web server. \Hypertarget{class_webserver_af4815e3e464d68899b42f78404f17f4e}\label{class_webserver_af4815e3e464d68899b42f78404f17f4e} 
+\index{Webserver@{Webserver}!waiting@{waiting}}
+\index{waiting@{waiting}!Webserver@{Webserver}}
+\doxysubsubsection{\texorpdfstring{waiting}{waiting}}
+{\footnotesize\ttfamily bool Webserver\+::waiting}
+
+Flag indicating whether the web server is waiting for a new request. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{webserver_8h}{webserver.\+h}}\item 
+\mbox{\hyperlink{webserver_8cpp}{webserver.\+cpp}}\end{DoxyCompactItemize}

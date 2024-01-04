@@ -3,11 +3,22 @@
 #define ANSI_COLOR_RED "\033[1;31m"
 #define ANSI_COLOR_RESET "\033[0m"
 
+/**
+ * @brief LoadBalancer constructor initializes member variables.
+ */
 LoadBalancer::LoadBalancer() {
     time = 0;
     qSize = 0;
 }
 
+/**
+ * @brief Run the load balancer simulation.
+ * @param webserverCount Number of web servers.
+ * @param totalClockCycles Total clock cycles for the simulation.
+ * @param verbose Verbose mode flag.
+ * @param firewall Firewall mode flag.
+ * @param requestSpeed Speed of generating requests (slow, fast, or varied).
+ */
 void LoadBalancer::run(int webserverCount, int totalClockCycles, bool verbose, bool firewall, int requestSpeed) {
     std::ofstream logFile("logs.txt");
     if (logFile.is_open()) {
@@ -72,6 +83,7 @@ void LoadBalancer::run(int webserverCount, int totalClockCycles, bool verbose, b
                             w -> r.printRequest(logFile);
                         }
                         w -> waiting = true;
+                        requestsCompleted++;
 
                         if(qSize < int(15*wServers.size()) && !toRemoveServer) { //too many servers, none sent to delete yet
                             logFile << "[BALANCING] Too many idle servers, toggling decrease" << std::endl;
@@ -100,6 +112,13 @@ void LoadBalancer::run(int webserverCount, int totalClockCycles, bool verbose, b
                 printStatus(verbose, logFile);
             }
         }
+        logFile << "\nSUMMARY" << endl;
+            logFile << "Final web server count: " << wServers.size() << endl;
+            logFile << "Number of items still in queue: " << qSize << endl;
+            logFile << "Total clock cycles run: " << totalClockCycles << endl;
+            logFile << "Total requests completed: " << requestsCompleted << endl;
+            logFile << "Total requests blocked by firewall: " << requestsBlocked << endl;
+
         logFile.close();
         std::cout << "Logs exported to 'logs.txt'." << std::endl;
     } else {
@@ -122,6 +141,13 @@ void LoadBalancer::run(int webserverCount, int totalClockCycles, bool verbose, b
 
 }
 
+/**
+ * @brief Generate a specified number of requests and add them to the queue.
+ * @param numToAdd Number of requests to generate.
+ * @param firewall Firewall mode flag.
+ * @param verbose Verbose mode flag.
+ * @param logFile Output log file stream.
+ */
 void LoadBalancer::generateRequests(int numToAdd, bool firewall, bool verbose, ofstream& logFile) {
     time = 0;
     for(int i = 0; i < numToAdd; i++) {
@@ -133,6 +159,7 @@ void LoadBalancer::generateRequests(int numToAdd, bool firewall, bool verbose, o
                     r.printRequest(logFile);
                 }
                 r = Request();
+                requestsBlocked++;
              }
         }
         q.push(r);
@@ -140,6 +167,11 @@ void LoadBalancer::generateRequests(int numToAdd, bool firewall, bool verbose, o
     }
 }
 
+/**
+ * @brief Print the current status of the load balancer.
+ * @param verbose Verbose mode flag.
+ * @param logFile Output log file stream.
+ */
 void LoadBalancer::printStatus(bool verbose, ofstream& logFile) {
     if(verbose) {
         logFile << "STATUS:" << endl;
@@ -162,6 +194,10 @@ void LoadBalancer::printStatus(bool verbose, ofstream& logFile) {
 
 }
 
+/**
+ * @brief Count the number of running web servers.
+ * @return Number of running web servers.
+ */
 int LoadBalancer::countRunningWebservers(){
     int count = 0;
     for(Webserver* w:wServers) {
@@ -172,6 +208,10 @@ int LoadBalancer::countRunningWebservers(){
     return count;
 }
 
+/**
+ * @brief Create a specified number of web servers and assign requests to them.
+ * @param serverCount Number of web servers to create.
+ */
 void LoadBalancer::createServers(int serverCount) {
     for(int i = 0; i < serverCount; i++) {
         Webserver* w = new Webserver();
@@ -186,7 +226,9 @@ void LoadBalancer::createServers(int serverCount) {
     }
 }
 
-
+/**
+ * @brief Remove a waiting server (not processing requests).
+ */
 void LoadBalancer::removeServer() {
     for (auto w = wServers.begin(); w != wServers.end(); w++) {
         if ((*w)->waiting == true) {

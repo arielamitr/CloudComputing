@@ -1,13 +1,23 @@
+/**
+ * @file main.cpp
+ * @brief Main program file for the load balancing simulation.
+ */
+
 #include "main.h"
 #include "loadbalancer.h"
 
-//ip range blocker: filter out certain IPs within a certain range
-
+/**
+ * @brief Main function to run the load balancing simulation.
+ *
+ * @param argc Number of command-line arguments.
+ * @param argv Array of command-line arguments.
+ * @return 0 on successful execution.
+ */
 int main(int argc, char* argv[]) {
     int webserverCount = 0;
     int totalClockCycles = 0;
     bool verbose = false;
-    int requestSpeed = 0; 
+    int requestSpeed = 0;
     bool firewall = false;
 
     LoadBalancer lb = LoadBalancer();
@@ -71,9 +81,15 @@ int main(int argc, char* argv[]) {
     }
 
     lb.run(webserverCount, totalClockCycles, verbose, firewall, requestSpeed);
+    return 0;
 }
 
-int getUserInput(){
+/**
+ * @brief Function to get user input from the command line.
+ *
+ * @return The user input as an integer.
+ */
+int getUserInput() {
     int userInput;
     std::cout << "Enter an integer: ";
     while (true) {
@@ -91,4 +107,3 @@ int getUserInput(){
     }
     return userInput;
 }
-
