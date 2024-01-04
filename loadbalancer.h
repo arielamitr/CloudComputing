@@ -7,6 +7,7 @@
 #include <unordered_set>
 #include<cstdlib>
 #include "request.h"
+#include "webserver.h"
 
 using namespace std;
 
@@ -22,8 +23,18 @@ class LoadBalancer {
 
         LoadBalancer();
 
+        void run(int webserverCount, int totalClockCycles, bool verbose, bool firewall, int requestSpeed);
+
         int qSize;
 
-        void generateRequests(int numToAdd);
+        void generateRequests(int numToAdd, bool firewall, bool verbose, ofstream& logFile);
+
+        void printStatus(bool verbose, ofstream& outputFile);
+
+        int countRunningWebservers();
+
+        void createServers(int serverCount);
+
+        void removeServer();
 
 };

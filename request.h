@@ -21,5 +21,5 @@ class Request {
 
         Request();
 
-        void printRequest();
+        void printRequest(ofstream& logFile);
 };

@@ -8,6 +8,6 @@ Request::Request() {
     cycles = rand() % 96 + 4;
 }
 
-void Request::printRequest() {
-    cout << "IP in: " << ipIn << "\nIP out: " << ipOut << "\nTime: " << cycles << endl << endl;
+void Request::printRequest(ofstream& logFile) {
+    logFile << "IP in: " << ipIn << "\nIP out: " << ipOut << "\nTime: " << cycles << endl << endl;
 }
